@@ -36,6 +36,8 @@ hotplug.c
         libudev
         libudev
 
+This is can run on x86 use make
+
 Makefile
     obj-m += nl_kernel.o
 

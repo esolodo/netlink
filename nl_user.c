@@ -1,4 +1,8 @@
 #include <sys/socket.h>
+#include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include <linux/netlink.h>
 
 #define NETLINK_USER 31  //self defined
@@ -16,7 +20,7 @@ void main()
     //int socket(int domain, int type, int protocol); 
     sock_fd=socket(PF_NETLINK, SOCK_RAW, NETLINK_USER);
     if(sock_fd<0)
-        return -1;
+        return ;
 
     memset(&src_addr, 0, sizeof(src_addr));
     src_addr.nl_family = AF_NETLINK;
@@ -57,7 +61,6 @@ void main()
     if(strcmp(magic, NLMSG_DATA(nlh)) == 0)
     {
         printf("Go to shutdown right now!\n");
-        system("halt");
     }
     close(sock_fd);
 }

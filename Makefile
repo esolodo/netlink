@@ -7,5 +7,5 @@ default:
 	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
 	gcc -o nl_user nl_user.c
 clean:
-	rm -rf *.order *.symvers *.o *.mod.c *.mod.o *.ko
+	rm -rf nl_user *.order *.symvers *.o *.mod.c *.mod.o *.ko
 
